@@ -1,0 +1,69 @@
+<!-- <p>listado-turnos-lazy works!</p> -->
+<div class="container extra-margin bg-white rounded">
+    <div class="table table-responsive" *ngIf="this.turnos != undefined && this.turnos.length > 0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <!-- <th>Turno</th> -->
+                    <th *ngIf="this.esRecepcionista">Cliente</th>
+                    <th *ngIf="this.esRecepcionista">Foto</th>
+                    <th>Especialista</th>
+                    <th>Foto</th>
+                    <th>Fecha</th>
+                    <th *ngIf="this.esRecepcionista">Estado</th>
+                    <th *ngIf="this.esRecepcionista">Realizado Por</th>
+                    <th>Sala</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let turno of this.turnos">
+                    <!--  <td>{{turno.key}}</td> -->
+                    <td *ngIf="this.esRecepcionista">{{turno.cliente | titlecase}}</td>
+                    <td *ngIf="this.esRecepcionista"><img [src]="turno.clienteFoto" style="height: 5rem;"></td>
+                    <td>{{turno.especialista | titlecase}}</td>
+                    <td><img [src]="turno.especialistaFoto" style="height: 5rem;"></td>
+                    <td>{{turno.fecha | date:'medium'}}</td>
+                    <td *ngIf="this.esRecepcionista">{{turno.estado | titlecase}}</td>
+                    <td *ngIf="this.esRecepcionista">{{turno.turnoRealizadoPor | titlecase}}</td>
+                    <td>{{turno.sala}}</td>
+                    <td align="center">
+                        <div *ngIf="!this.esRecepcionista">
+                            <div *ngIf="turno.estado == this.diccionario.estado_turno.terminado">
+                                <button class="btn btn-primary extra-margin extra-margin-sides"
+                                    (click)="resenia(turno.key)">Reseña</button>
+                                <button class="btn btn-secondary extra-margin extra-margin-sides"
+                                    (click)="diagnostico(turno.key)">Diagnostico</button>
+                            </div>
+                            <div *ngIf="turno.estado != this.diccionario.estado_turno.terminado">
+                                Sin opciones disponibles.
+                            </div>
+                        </div>
+                        <div *ngIf="this.esRecepcionista">
+                            <div *ngIf="turno.estado == this.diccionario.estado_turno.pedido">
+                                <button class="btn btn-danger" (click)="cancelarTurno(turno.key)">Cancelar
+                                    Turno</button>
+                            </div>
+                            <div *ngIf="turno.estado == this.diccionario.estado_turno.cancelado">
+                                Turno cancelado.
+                            </div>
+                            <div *ngIf="turno.estado == this.diccionario.estado_turno.terminado">
+                                <button class="btn btn-primary extra-margin extra-margin-sides"
+                                    (click)="resenia(turno.key)">Reseña</button>
+                                <button class="btn btn-secondary extra-margin extra-margin-sides"
+                                    (click)="diagnostico(turno.key)">Diagnostico</button>
+                            </div>
+                            <div
+                                *ngIf="turno.estado != this.diccionario.estado_turno.cancelado && turno.estado != this.diccionario.estado_turno.pedido && turno.estado && turno.estado != this.diccionario.estado_turno.terminado">
+                                No hay opciones disponibles.
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container extra-margin alert alert-warning" *ngIf="this.turnos != undefined && this.turnos.length == 0">
+        No hay turnos registrados
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<!-- <p>alta-turno-lazy works!</p> -->
+<div class="container bg-white rounded">
+    <form [formGroup]="form">
+        <div class="form-group" *ngIf="this._authServ.user.tipo == 'recepcionista'">
+            <label>Cliente</label>
+            <select class="form-control" formControlName="cliente">
+                <ng-container *ngFor="let cli of this.clientes">
+                    <option [ngValue]="cli.key">
+                        {{cli.apellido | titlecase}} , {{ cli.nombre | titlecase}}
+                    </option>
+                </ng-container>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Especialista</label>
+            <select class="form-control" formControlName="especialista">
+                <ng-container *ngFor="let esp of this.especialistas">
+                    <option [ngValue]="esp.key">
+                        {{esp.apellido | titlecase}} , {{ esp.nombre | titlecase}} /
+                        {{esp.especialidad | titlecase}}
+                    </option>
+                </ng-container>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Fecha</label>
+            <input class="form-control" formControlName="fecha" type="datetime-local" step="900">
+        </div>
+        <div style="text-align: center; height: 3rem">
+            <button class="btn btn-primary col-4" (click)="enviarFormulario()"
+                [disabled]="!this.form.valid">Enviar</button>
+        </div>
+    </form>
+</div>

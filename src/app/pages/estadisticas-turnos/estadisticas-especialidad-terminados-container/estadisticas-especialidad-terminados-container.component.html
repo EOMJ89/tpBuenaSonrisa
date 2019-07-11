@@ -1,0 +1,13 @@
+<!-- <p>estadisticas-especialidad-terminados-container works!</p> -->
+<div class="container">
+    <div class="row justify-content-center">
+        <h2>Ver turnos</h2>
+    </div>
+    <div class="row justify-content-around">
+        <button class="btn btn-success text-center" (click)="this.manageList(true)">Realizados</button>
+        <button class="btn btn-primary text-center" (click)="this.manageList(false)">Cancelados</button>
+    </div>
+    <div class="row justify-content-around">
+        <app-estadisticas-especialidad-lazy [lista]="this.estadisticas"></app-estadisticas-especialidad-lazy>
+    </div>
+</div>

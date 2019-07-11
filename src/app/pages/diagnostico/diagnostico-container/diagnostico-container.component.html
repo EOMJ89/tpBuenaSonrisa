@@ -1,0 +1,23 @@
+<!-- <p>diagnostico-container works!</p> -->
+<div *ngIf="this.turno != false && this.turno != true">
+    <div *ngIf="this.diagnostico == false">
+        <div *ngIf="this._authServ.user.tipo == 'especialista'">
+            <app-diagnostico-lazy (aceptarFormulario)="crearDiagnostico($event)"></app-diagnostico-lazy>
+        </div>
+        <div *ngIf="this._authServ.user.tipo != 'especialista'">
+            <div style="text-align: center; margin-top: 1rem;" class="container alert alert-primary">El doctor no ha
+                cargado un
+                diagnostico.</div>
+        </div>
+    </div>
+    <div *ngIf="this.diagnostico != false && this.diagnostico != true">
+        <app-diagnostico-mostrar-lazy [diagnostico]="this.diagnostico"></app-diagnostico-mostrar-lazy>
+    </div>
+</div>
+<div *ngIf="this.turno == false">
+    <div style="text-align: center; margin-top: 1rem;" class="container alert alert-warning">¡No hay turno con ese
+        codigo!</div>
+</div>
+<div *ngIf="this.turno == true || this.diagnostico == true">
+    <div style="text-align: center; margin-top: 1rem;" class="container alert alert-success">Espere un momento...</div>
+</div>

@@ -1,0 +1,53 @@
+<!-- <p>listado-especialista-lazy works!</p> -->
+<div class="container bg-white rounded">
+    <div class="table table-responsive" *ngIf="this.turnos != undefined && this.turnos.length > 0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <!-- <th>Turno</th> -->
+                    <th>Cliente</th>
+                    <th>Especialista</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Realizado Por</th>
+                    <th>Sala</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let turno of this.turnos">
+                    <!--  <td>{{turno.key}}</td> -->
+                    <td>{{turno.cliente | titlecase}}</td>
+                    <td>{{turno.especialista | titlecase}}</td>
+                    <td>{{turno.fecha | date:'medium'}}</td>
+                    <td>{{turno.estado | titlecase}}</td>
+                    <td>{{turno.turnoRealizadoPor | titlecase}}</td>
+                    <td>{{turno.sala}}</td>
+                    <td>
+                        <div *ngIf="turno.estado == this.diccionario.estado_turno.pedido" class="d-flex justify-content-around">
+                            <button class="btn btn-primary " (click)="atenderTurno(turno.key)">Marcar
+                                presente</button>
+                            <button class="btn btn-danger" (click)="cancelarTurno(turno.key)">Marcar ausente</button>
+                        </div>
+                        <div *ngIf="turno.estado == this.diccionario.estado_turno.en_proceso">
+                            <button class="btn btn-secondary" (click)="terminarTurno(turno.key)">Marcar
+                                terminado</button>
+                        </div>
+                        <div *ngIf="turno.estado == this.diccionario.estado_turno.terminado">
+                            <button class="btn btn-primary" (click)="resenia(turno.key)">Diagnostico</button>
+                        </div>
+                        <div *ngIf="turno.estado == this.diccionario.estado_turno.ausente">
+                            El paciente está ausente.
+                        </div>
+                        <div *ngIf="turno.estado == this.diccionario.estado_turno.cancelado">
+                            El turno fue cancelado.
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container extra-margin alert alert-warning" *ngIf="this.turnos != undefined && this.turnos.length == 0">
+        No hay turnos registrados
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<!-- <p>estadistica-fechas-turnos-lazy works!</p> -->
+<div class="container extra-margin bg-white rounded">
+    <div class="table table-responsive" *ngIf="this.lista != undefined && this.lista.length > 0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Especialista </th>
+                    <th>Dias sin turnos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let logueo of this.lista">
+                    <td>{{logueo.especialista}}</td>
+                    <td>{{logueo.dias}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="extra-margin alert alert-warning" *ngIf="this.lista != undefined && this.lista.length == 0">
+        No hay lista
+    </div>
+</div>

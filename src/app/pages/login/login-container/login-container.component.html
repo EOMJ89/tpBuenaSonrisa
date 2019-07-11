@@ -1,0 +1,12 @@
+<!-- <p>login-container works!</p> -->
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12">
+            <app-login-lazy (aceptarFormulario)="realizarLogueo($event)"></app-login-lazy>
+        </div>
+        <div class="extra-margin col-8">
+            <div class=" alert alert-warning text-center" *ngIf="this.mensajeError == true">
+                {{this.mensaje}}</div>
+        </div>
+    </div>
+</div>

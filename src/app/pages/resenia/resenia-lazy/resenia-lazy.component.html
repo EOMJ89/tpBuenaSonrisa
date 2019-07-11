@@ -1,0 +1,18 @@
+<!-- <p>resenia-lazy works!</p> -->
+<form [formGroup]="form">
+    <div class="form-group">
+        <label>Puntaje para la clinica</label>
+        <input type="range" class="form-control-range" formControlName="clinica" min="0" max="10" value="0">
+    </div>
+    <div class="form-group">
+        <label>Puntaje para el especialista</label>
+        <input type="range" class="form-control-range" formControlName="especialista" min="0" max="10" value="0">
+    </div>
+    <div class="form-group">
+        <label>Reseña</label>
+        <textarea class="form-control" formControlName="resenia"></textarea>
+    </div>
+    <div style="text-align: center; height: 3rem">
+        <button class="btn btn-primary col-4" (click)="enviarFormulario()" [disabled]="!this.form.valid">Enviar</button>
+    </div>
+</form>

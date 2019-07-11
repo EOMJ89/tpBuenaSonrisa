@@ -1,0 +1,22 @@
+<!-- <p>estadisticas-especialidad-recepcionista-lazy works!</p> -->
+<div class="container extra-margin bg-white rounded">
+    <div class="table table-responsive" *ngIf="this.lista != undefined && this.lista.length > 0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Realizado por </th>
+                    <th>Cantidad de Turnos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let logueo of this.lista">
+                    <td>{{logueo.tipo}}</td>
+                    <td>{{logueo.turnos}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="extra-margin alert alert-warning" *ngIf="this.lista != undefined && this.lista.length == 0">
+        No hay lista registrados
+    </div>
+</div>

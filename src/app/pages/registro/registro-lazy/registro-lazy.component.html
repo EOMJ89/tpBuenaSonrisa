@@ -1,0 +1,90 @@
+<!-- <p>registro-lazy works!</p> -->
+<div class="container rounded bg-white">
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label>Correo</label>
+            <input class="form-control" formControlName="correo" type="email" [ngClass]="{
+                'border border-danger': !form.controls.correo.valid && form.controls.correo.touched,
+                'border border-success': form.controls.correo.valid
+            }">
+        </div>
+        <div class="alert alert-danger" *ngIf="!form.controls.correo.valid && form.controls.correo.touched">
+            <div *ngIf="form.controls.correo.errors.required">El correo es requerido.</div>
+            <div *ngIf="form.controls.correo.errors.email">El correo no tiene el formato indicado.</div>
+        </div>
+        <div class="form-group">
+            <label>Clave</label>
+            <input class="form-control" formControlName="clave" type="password" [ngClass]="{
+                'border border-danger': !form.controls.clave.valid && form.controls.clave.touched,
+                'border border-success': form.controls.clave.valid
+            }">
+        </div>
+        <div class="alert alert-danger" *ngIf="!form.controls.clave.valid && form.controls.clave.touched">
+            <div *ngIf="form.controls.clave.errors.required">La clave es requerida.</div>
+            <div *ngIf="form.controls.clave.errors.minLength">La clave no tiene el largo requerido.</div>
+        </div>
+        <div class="form-group">
+            <label>Nombre</label>
+            <input class="form-control" formControlName="nombre" [ngClass]="{
+                'border border-danger': !form.controls.nombre.valid && form.controls.nombre.touched,
+                'border border-success': form.controls.nombre.valid
+            }">
+        </div>
+        <div class="alert alert-danger" *ngIf="!form.controls.nombre.valid && form.controls.nombre.touched">
+            <div *ngIf="form.controls.nombre.errors.required">El nombre es requerido.</div>
+        </div>
+        <div class="form-group">
+            <label>Apellido</label>
+            <input class="form-control" formControlName="apellido" [ngClass]="{
+                'border border-danger': !form.controls.apellido.valid && form.controls.apellido.touched,
+                'border border-success': form.controls.apellido.valid
+            }">
+        </div>
+        <div class="alert alert-danger" *ngIf="!form.controls.apellido.valid && form.controls.apellido.touched">
+            <div *ngIf="form.controls.apellido.errors.required">El apellido es requerido.</div>
+        </div>
+        <div class="form-group">
+            <label>Tipo</label>
+            <select formControlName="tipo" class="form-control" [ngClass]="{
+                'border border-danger': !form.controls.tipo.valid && form.controls.tipo.touched,
+                'border border-success': form.controls.tipo.valid
+            }">
+                <option value="cliente" selected>Cliente</option>
+                <option value="especialista">Especialista</option>
+                <option value="recepcionista">Recepcionista</option>
+            </select>
+        </div>
+        <div class="form-group" *ngIf="this.form.controls.tipo.value == 'especialista'">
+            <label>Especialidad</label>
+            <input class="form-control" formControlName="especialidad" [ngClass]="{
+                'border border-danger': !form.controls.especialidad.valid && form.controls.especialidad.touched,
+                'border border-success': form.controls.especialidad.valid
+            }">
+        </div>
+        <div class="alert alert-danger" *ngIf="!form.controls.especialidad.valid && form.controls.especialidad.touched">
+            <div *ngIf="form.controls.especialidad.errors.required">La especialidad es requerida.</div>
+        </div>
+        <div class="w-100 row justify-content-around">
+            <div class="col-6">
+                <ngx-file-drop (onFileDrop)="dropped($event)">
+                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                        <button class="h-80 w-80 btn btn-primary-outline" (click)="openFileSelector()">Buscar
+                            Archivo</button>
+                    </ng-template>
+                </ngx-file-drop>
+            </div>
+            <div class="col-6" style="text-align: center">
+                <div *ngIf="this.imagePreview != null" class="w-100">
+                    <img [src]="this.imagePreview" class="img-preview">
+                </div>
+                <div *ngIf="this.imagePreview == null" class="img-empty w-100 h-100 align-items-stretch">No se ha
+                    cargado la imagen, es obligatorio.
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 1rem; height: 3rem">
+            <button class="btn btn-primary col-4" (click)="enviarFormulario()"
+                [disabled]="!this.form.valid">Enviar</button>
+        </div>
+    </form>
+</div>

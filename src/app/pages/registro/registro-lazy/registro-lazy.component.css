@@ -1,0 +1,18 @@
+.img-preview {
+  min-width: auto;
+  max-width: auto;
+  max-height: 6rem;
+  border-radius: 1rem;
+}
+
+.img-empty {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  min-width: auto;
+  max-width: auto;
+  max-height: 6rem;
+  border-radius: 1rem;
+  background-color: darkgray;
+  word-wrap: break-word;
+  text-align: center !important;
+}

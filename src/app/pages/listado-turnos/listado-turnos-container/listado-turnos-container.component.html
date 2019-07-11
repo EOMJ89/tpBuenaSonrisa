@@ -1,0 +1,8 @@
+<!-- <p>listado-turnos-container works!</p> -->
+<app-listado-turnos-lazy [turnos]="this.auxTurnos" [esRecepcionista]="this.esRecepcionista"
+    (enviarUID)="manejarEliminar($event)"></app-listado-turnos-lazy>
+<div id="modal-container" *ngIf="this.mostrarModal == true">
+    <app-modal (recibirRespuesta)="manejarConfirmacion($event)" [key]="this._key">
+    </app-modal>
+</div>
+<div id="overlay" *ngIf="this.mostrarModal == true"></div>

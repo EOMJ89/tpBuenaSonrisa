@@ -1,0 +1,10 @@
+<!-- <p>menu works!</p> -->
+<div class="extra-margin">
+    <div class="container rounded-pill justify-content-center p-2 bg-warning">
+        <div class="d-flex justify-content-around align-items-center" *ngIf="this._authServ.user != null">
+            <div>Usuario: {{this._authServ.user.correo}}</div>
+            <a routerLinkActive="active" routerLink="/home-cliente" class="btn btn-primary">Inicio</a>
+            <div class="btn btn-danger" (click)="cerrarSesion()">Cerrar Sesión</div>
+        </div>
+    </div>
+</div>

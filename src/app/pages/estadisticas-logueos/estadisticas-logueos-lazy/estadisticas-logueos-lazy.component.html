@@ -1,0 +1,24 @@
+<!-- <p>estadisticas-logueos-lazy works!</p> -->
+<div class="container extra-margin bg-white rounded">
+    <div class="table table-responsive" *ngIf="this.logueos != undefined && this.logueos.length > 0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let logueo of this.logueos">
+                    <td>{{logueo.usuario}}</td>
+                    <td>{{logueo.fecha | date:medium}}</td>
+                    <td>{{logueo.tipo | titlecase}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="extra-margin alert alert-warning" *ngIf="this.logueos != undefined && this.logueos.length == 0">
+        No hay logueos registrados
+    </div>
+</div>

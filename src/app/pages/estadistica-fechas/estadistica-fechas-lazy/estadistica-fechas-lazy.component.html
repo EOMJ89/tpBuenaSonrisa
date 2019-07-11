@@ -1,0 +1,15 @@
+<!-- <p>estadistica-fechas-lazy works!</p> -->
+<div class="container">
+    <form [formGroup]="this.form">
+        <div class="form-group">
+            <label>Fecha Inicial</label>
+            <input class="form-control" formControlName="fechaInicio" type="date"></div>
+        <div>
+            <label>Fecha Final</label>
+            <input class="form-control" formControlName="fechaFinal" type="date"></div>
+        <div class="form-group text-center">
+            <button (click)="registrar()">Ok</button></div>
+    </form>
+</div>
+<div class="container extra-margin alert alert-warning" *ngIf="this.entreFechas != undefined">Turnos entre las fechas
+    indicadas: {{this.entreFechas}}</div>

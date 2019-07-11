@@ -1,0 +1,25 @@
+<!-- <p>estadisticas-comentarios-lazy works!</p> -->
+<div class="container extra-margin bg-white rounded">
+    <div *ngIf="this.lista != undefined && this.lista.length > 0">
+        <div *ngFor="let estat of this.lista" class="extra-margin">
+            <p>{{estat.especialista}}</p>
+            <div class="bg-success rounded border border-dark" style="margin-bottom: 1rem;">
+                <h5 class="text-center">Mejor</h5>
+                <p><label>Puntaje a la clinica: </label> {{estat.comentarios[0].clinica}}</p>
+                <p><label>Puntaje al especialista: </label> {{estat.comentarios[0].especialista}}</p>
+                <p>Reseña:</p>
+                <p>{{estat.comentarios[0].resenia}}</p>
+            </div>
+            <div class="bg-warning rounded border border-dark">
+                <h5 class="text-center">Peor</h5>
+                <p><label>Puntaje a la clinica: </label> {{estat.comentarios[1].clinica}}</p>
+                <p><label>Puntaje al especialista: </label> {{estat.comentarios[1].especialista}}</p>
+                <p>Reseña:</p>
+                <p>{{estat.comentarios[1].resenia}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="extra-margin alert alert-warning" *ngIf="this.lista != undefined && this.lista.length == 0">
+        No hay lista registrados
+    </div>
+</div>

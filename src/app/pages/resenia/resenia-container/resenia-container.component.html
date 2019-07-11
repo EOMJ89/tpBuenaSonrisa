@@ -1,0 +1,25 @@
+<!-- <p>resenia-container works!</p> -->
+<div class="container">
+    <div *ngIf="this.turno != false && this.turno != true">
+        <div *ngIf="this.encuesta == false">
+            <div *ngIf="this._authServ.user.tipo == 'cliente'" class="container bg-white rounded extra-margin extra-margin-sides">
+                <app-resenia-lazy (aceptarFormulario)="crearDiagnostico($event)"></app-resenia-lazy>
+            </div>
+            <div *ngIf="this._authServ.user.tipo != 'cliente'">
+                <div style="text-align: center; margin-top: 1rem;" class="alert alert-primary">El cliente no ha cargado
+                    una
+                    encuesta.</div>
+            </div>
+        </div>
+        <div *ngIf="this.encuesta != false && this.encuesta != true">
+            <app-resenia-mostrar-lazy [encuesta]="this.encuesta"></app-resenia-mostrar-lazy>
+        </div>
+    </div>
+    <div *ngIf="this.turno == false">
+        <div style="text-align: center; margin-top: 1rem;" class="alert alert-warning">¡No hay turno con ese codigo!
+        </div>
+    </div>
+    <div *ngIf="this.turno == true || this.encuesta == true">
+        <div style="text-align: center; margin-top: 1rem;" class="alert alert-success">Espere un momento...</div>
+    </div>
+</div>

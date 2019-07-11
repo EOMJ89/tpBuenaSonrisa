@@ -1,0 +1,13 @@
+<!-- <p>diagnostico-lazy works!</p> -->
+<div class="container rounded bg-white">
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label>Diagnostico</label>
+            <textarea class="form-control" formControlName="diagnostico"></textarea>
+        </div>
+        <div style="text-align: center;height: 3rem">
+            <button class="btn btn-primary col-4" (click)="enviarFormulario()"
+                [disabled]="!this.form.valid">Enviar</button>
+        </div>
+    </form>
+</div>

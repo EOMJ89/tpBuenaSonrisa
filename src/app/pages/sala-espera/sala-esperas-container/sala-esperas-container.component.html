@@ -1,0 +1,8 @@
+<!-- <p>sala-esperas-container works!</p> -->
+<app-sala-esperas-lazy [listado]="this.consultoriosMostrados" (enviarKeyHabilitación)="habilitarConsultorio($event)">
+</app-sala-esperas-lazy>
+<div id="modal-container" *ngIf="this.mostrarModal == true">
+    <app-modal-consultorio (recibirRespuesta)="manejarConfirmacion($event)" [key]="this._key" [estado]="this._estado">
+    </app-modal-consultorio>
+</div>
+<div id="overlay" *ngIf="this.mostrarModal == true"></div>

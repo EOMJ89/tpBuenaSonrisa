@@ -1,0 +1,31 @@
+<!-- <p>sala-esperas-lazy works!</p> -->
+<div class="container extra-margin bg-light">
+    <div *ngIf="this.listado != undefined">
+        <table class="table table-striped" align="center">
+            <thead>
+                <tr>
+                    <th>Consultorio</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let consultorio of this.listado">
+                    <td>{{consultorio.codigo}}</td>
+                    <td>{{consultorio.estado}}</td>
+                    <td align="center">
+                        <button class="btn text-center" style="height: 4.5rem" [ngClass]="{
+                            'btn-danger': consultorio.estado != this.diccionario.estado_consultorio.no_disponible,
+                            'btn-warning': consultorio.estado == this.diccionario.estado_consultorio.no_disponible
+                        }" (click)="habilitarConsultorio(consultorio.key, consultorio.estado)">
+                            <div *ngIf="consultorio.estado == this.diccionario.estado_consultorio.no_disponible">
+                                Habilitar Consultorio</div>
+                            <div *ngIf="consultorio.estado != this.diccionario.estado_consultorio.no_disponible">
+                                Deshabilitar Consultorio</div>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<!-- <p>listado-especialista-container works!</p> -->
+<app-listado-especialista-lazy [turnos]="this.auxTurnos" (enviarUID)="manejarEliminar($event)">
+</app-listado-especialista-lazy>
+<div id="modal-container" *ngIf="this.mostrarModal == true">
+    <app-modal-ausente (recibirRespuesta)="manejarConfirmacion($event)" [key]="this._key"></app-modal-ausente>
+</div>
+<div id="overlay" *ngIf="this.mostrarModal == true" (click)="cerrarModales()"></div>
