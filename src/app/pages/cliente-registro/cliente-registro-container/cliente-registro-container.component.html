@@ -1,13 +1,14 @@
-<!-- <p>registro-container works!</p> -->
+<!-- <p>cliente-registro-container works!</p> -->
 <div class="d-flex vh-100 justify-content-center align-items-center">
     <div class="row justify-content-center align-items-center">
         <div class="extra-margin col-8 text-wrap">
             <div class="alert alert-warning text-center"
-                *ngIf="this.mensajeError == true">
+                *ngIf="this.mensaje !== ''">
                 {{this.mensaje}}</div>
         </div>
         <div class="col-12">
-            <app-registro-lazy (aceptarFormulario)="crearUsuario($event)"></app-registro-lazy>
+            <app-cliente-registro-lazy
+                (aceptarFormulario)="crearUsuario($event)"></app-cliente-registro-lazy>
         </div>
     </div>
 </div>

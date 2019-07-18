@@ -18,6 +18,10 @@ export class LoginLazyComponent implements OnInit {
       correo: new FormControl('', [Validators.required, Validators.email]),
       clave: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
+
+    this.form.valueChanges.subscribe(() => {
+      console.log(this.form.controls.clave);
+    });
   }
 
   public enviarFormulario() {

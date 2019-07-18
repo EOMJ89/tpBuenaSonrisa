@@ -62,6 +62,8 @@ import { EstadisticasComentariosLazyComponent } from './pages/estadisticas-comen
 import { EstadisticaFechasContainerComponent } from './pages/estadistica-fechas/estadistica-fechas-container/estadistica-fechas-container.component';
 import { EstadisticaFechasLazyComponent } from './pages/estadistica-fechas/estadistica-fechas-lazy/estadistica-fechas-lazy.component';
 import { EstadisticaFechasTurnosLazyComponent } from './pages/estadistica-fechas/estadistica-fechas-turnos-lazy/estadistica-fechas-turnos-lazy.component';
+import { ClienteRegistroLazyComponent } from './pages/cliente-registro/cliente-registro-lazy/cliente-registro-lazy.component';
+import { ClienteRegistroContainerComponent } from './pages/cliente-registro/cliente-registro-container/cliente-registro-container.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +109,8 @@ import { EstadisticaFechasTurnosLazyComponent } from './pages/estadistica-fechas
     EstadisticaFechasContainerComponent,
     EstadisticaFechasLazyComponent,
     EstadisticaFechasTurnosLazyComponent,
+    ClienteRegistroLazyComponent,
+    ClienteRegistroContainerComponent,
   ],
   imports: [
     BrowserModule,

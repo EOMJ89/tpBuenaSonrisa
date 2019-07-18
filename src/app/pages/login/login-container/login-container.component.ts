@@ -58,6 +58,6 @@ export class LoginContainerComponent {
   private mostrarMensaje(codigo: string) {
     this.mensaje = this.elegirMensaje(codigo);
     this.mensajeError = true;
-    setTimeout(() => { this.mensajeError = false; }, 2000);
+    setTimeout(() => { if (this.mensajeError !== false) { this.mensajeError = false; } }, 5000);
   }
 }

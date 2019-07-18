@@ -5,29 +5,42 @@
         <form [formGroup]="this.form">
             <div class="form-group">
                 <label>Correo</label>
-                <input class="form-control" formControlName="correo" type="email" [ngClass]="{
-                    'border border-danger': !form.controls.correo.valid && form.controls.correo.touched,
+                <input class="form-control" formControlName="correo"
+                    type="email" [ngClass]="{
+                    'border border-danger': !form.controls.correo.valid &&
+                    form.controls.correo.touched,
                     'border border-success': form.controls.correo.valid
-                }">
+                    }">
             </div>
-            <div class="alert alert-danger" *ngIf="!form.controls.correo.valid && form.controls.correo.touched">
-                <div *ngIf="form.controls.correo.errors.required">El correo es requerido.</div>
-                <div *ngIf="form.controls.correo.errors.email">El correo no tiene el formato indicado.</div>
+            <div class="alert alert-danger" *ngIf="!form.controls.correo.valid
+                && form.controls.correo.touched">
+                <div *ngIf="form.controls.correo.errors.required">El correo es
+                    requerido.</div>
+                <div *ngIf="form.controls.correo.errors.email">El correo no
+                    tiene el formato indicado.</div>
             </div>
             <div class="form-group">
                 <label>Clave</label>
-                <input class="form-control" formControlName="clave" type="password" [ngClass]="{
-                    'border border-danger': !form.controls.clave.valid && form.controls.clave.touched,
+                <input class="form-control" formControlName="clave"
+                    type="password" [ngClass]="{
+                    'border border-danger': !form.controls.clave.valid &&
+                    form.controls.clave.touched,
                     'border border-success': form.controls.clave.valid
-                }">
+                    }">
             </div>
-            <div class="alert alert-danger" *ngIf="!form.controls.clave.valid && form.controls.clave.touched">
-                <div *ngIf="form.controls.clave.errors.required">La clave es requerida.</div>
-                <div *ngIf="form.controls.clave.errors.minLength">La clave no tiene el largo requerido.</div>
+            <div class="alert alert-danger" *ngIf="!form.controls.clave.valid &&
+                form.controls.clave.touched">
+                <div *ngIf="form.controls.clave.errors.required">La clave es
+                    requerida.</div>
+                <div *ngIf="form.controls.clave.errors.minlength">La clave no
+                    tiene el largo requerido.</div>
             </div>
             <div class="row width-100 justify-content-around">
-                <button class="btn btn-primary col-4" (click)="enviarFormulario()"
+                <button class="btn btn-primary col-4"
+                    (click)="enviarFormulario()"
                     [disabled]="!this.form.valid">Enviar</button>
+                <a routerLinkActive="active" routerLink="/cliente-registro"
+                    class="btn btn-success text-center">Registro</a>
             </div>
         </form>
     </div>

@@ -67,9 +67,6 @@ export class AuthService {
         // console.log('Usuario creado', user);
         this._secondaryApp.auth().signOut();
         return user;
-      })
-      .catch((err) => {
-        console.log('Error en la creación dentro del servicio', err);
       });
   }
 }

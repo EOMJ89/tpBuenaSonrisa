@@ -1,5 +1,5 @@
-<!-- <p>registro-lazy works!</p> -->
-<div class="container rounded bg-white">
+<!-- <p>cliente-registro-lazy works!</p> -->
+<div class="container rounded bg-white extra-margin">
     <form [formGroup]="form">
         <div class="form-group">
             <label>Correo</label>
@@ -59,33 +59,6 @@
             <div *ngIf="form.controls.apellido.errors.required">El apellido es
                 requerido.</div>
         </div>
-        <div class="form-group">
-            <label>Tipo</label>
-            <select formControlName="tipo" class="form-control" [ngClass]="{
-                'border border-danger': !form.controls.tipo.valid &&
-                form.controls.tipo.touched,
-                'border border-success': form.controls.tipo.valid
-                }">
-                <option value="cliente" selected>Cliente</option>
-                <option value="especialista">Especialista</option>
-                <option value="recepcionista">Recepcionista</option>
-            </select>
-        </div>
-        <div class="form-group" *ngIf="this.form.controls.tipo.value ==
-            'especialista'">
-            <label>Especialidad</label>
-            <input class="form-control" formControlName="especialidad"
-                [ngClass]="{
-                'border border-danger': !form.controls.especialidad.valid &&
-                form.controls.especialidad.touched,
-                'border border-success': form.controls.especialidad.valid
-                }">
-        </div>
-        <div class="alert alert-danger" *ngIf="!form.controls.especialidad.valid
-            && form.controls.especialidad.touched">
-            <div *ngIf="form.controls.especialidad.errors.required">La
-                especialidad es requerida.</div>
-        </div>
         <div class="w-100 row justify-content-around">
             <div class="col-6">
                 <ngx-file-drop (onFileDrop)="dropped($event)">
@@ -107,8 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="row width-100 justify-content-around" style="text-align:
-            center; margin-top: 1rem; height: 3rem">
+        <div class="row width-100 justify-content-around" style="margin-top:0.5rem">
             <button class="btn btn-primary col-4" (click)="enviarFormulario()"
                 [disabled]="!this.form.valid">Enviar</button>
             <a routerLinkActive="active" routerLink="/login"

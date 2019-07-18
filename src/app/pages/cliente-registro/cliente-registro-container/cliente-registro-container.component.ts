@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario/usuario';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { FirebaseService } from 'src/app/services/firebase/firebase.service';
-import { diccionario } from 'src/app/models/diccionario';
-import { UploadTaskSnapshot } from '@angular/fire/storage/interfaces';
 import { Router } from '@angular/router';
+import { UploadTaskSnapshot } from '@angular/fire/storage/interfaces';
+import { Usuario } from 'src/app/models/usuario/usuario';
+import { diccionario } from 'src/app/models/diccionario';
 
 @Component({
-  selector: 'app-registro-container',
-  templateUrl: './registro-container.component.html',
-  styleUrls: ['./registro-container.component.css']
+  selector: 'app-cliente-registro-container',
+  templateUrl: './cliente-registro-container.component.html',
+  styleUrls: ['./cliente-registro-container.component.css']
 })
-export class RegistroContainerComponent {
+export class ClienteRegistroContainerComponent {
   public mensaje = '';
   // tslint:disable-next-line: variable-name
   constructor(private _authServ: AuthService, private _firebaseServ: FirebaseService, private _router: Router) { }

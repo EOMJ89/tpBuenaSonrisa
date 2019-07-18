@@ -20,6 +20,7 @@ import { EstadisticasEspecialidadRecepcionistaContainerComponent } from './pages
 import { EstadisticasUsadosContainerComponent } from './pages/estadisticas-especialidades/estadisticas-usados-container/estadisticas-usados-container.component';
 import { EstadisticasComentariosContainerComponent } from './pages/estadisticas-comentarios/estadisticas-comentarios-container/estadisticas-comentarios-container.component';
 import { EstadisticaFechasContainerComponent } from './pages/estadistica-fechas/estadistica-fechas-container/estadistica-fechas-container.component';
+import { ClienteRegistroContainerComponent } from './pages/cliente-registro/cliente-registro-container/cliente-registro-container.component';
 
 // Guards
 import { LoggedInGuard } from './guards/loggedIn/logged-in.guard';
@@ -32,6 +33,7 @@ import { LoggedOutGuard } from './guards/loggedOut/logged-out.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginContainerComponent, canActivate: [LoggedOutGuard] },
+  { path: 'cliente-registro', component: ClienteRegistroContainerComponent, canActivate: [LoggedOutGuard] },
   { path: 'registro', component: RegistroContainerComponent, canActivate: [LoggedInGuard, AdminGuard] },
   { path: 'home-cliente', component: HomeClienteComponent, canActivate: [LoggedInGuard, ClienteGuard] },
   { path: 'home-admin', component: HomeAdminComponent, canActivate: [LoggedInGuard, AdminGuard] },
